@@ -45,14 +45,10 @@ function testeLoopAtividades(testeProximoValor) {
     return !isNaN(testeProximoValor) && testeProximoValor.length == 7;
 }
 
-module.exports = async function (link) {
+module.exports = async function (page) {
     let dados = null;
-    let browser = null;
-    try {
-        browser = await puppeteer.launch();
-        const page = await browser.newPage();
 
-        await page.goto(link, { waitUntil: "networkidle0" });
+    try {
 
         const listItems = await page.$$("strong");
         let textos = [];
@@ -103,7 +99,6 @@ module.exports = async function (link) {
         console.error("Our error:\n", e);
         dados = null;
     } finally {
-        await browser.close();
         return dados;
     }
 }

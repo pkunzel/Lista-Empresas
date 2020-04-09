@@ -66,7 +66,7 @@ async function iniciar() {
     db = client.db('consultadados');
     console.log("Connected to MongoDB");
 
-    converterSitemapEmListaLinks('links/sitemap43.txt');
+    converterSitemapEmListaLinks('links/sitemap44.txt');
 }
 
 
